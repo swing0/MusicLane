@@ -7,6 +7,7 @@ public class EditHitObject : MonoBehaviour
     public GameObject pong;
     public GameObject airPlane;
     public GameObject airPlaneTail;
+    public List<EnemyFire> enemyFires = new List<EnemyFire>();
 
     private GameObject theTail;// 当前的tail
 
@@ -29,7 +30,6 @@ public class EditHitObject : MonoBehaviour
     void Update()
     {
         createEnemy();
-        
     }
 
 
@@ -56,6 +56,7 @@ public class EditHitObject : MonoBehaviour
             if (pressTime > LONGPRESS)
             {
                 isCanCreateAirPlane = true;
+                finalAirPlaneTail(pressTime);
             }
             else
             {
@@ -70,6 +71,9 @@ public class EditHitObject : MonoBehaviour
         // 消除LONGPRESS的延迟
         pongPosition = transform.position - new Vector3(0f, beatTempo * LONGPRESS, 0f);
         Instantiate(pong, pongPosition, pong.transform.rotation);
+
+        addToList("Pong",pongPosition,0);
+
     }
 
     void createAirPlane()
@@ -77,6 +81,7 @@ public class EditHitObject : MonoBehaviour
         airPlanePosition = transform.position - new Vector3(0f, beatTempo * LONGPRESS, 0f);
         Instantiate(airPlane, airPlanePosition, airPlane.transform.rotation);
         isCanCreateAirPlane = false;
+        addToList("AirPlane", airPlanePosition, 0);
         createAirPlaneTail();
     }
 
@@ -89,6 +94,18 @@ public class EditHitObject : MonoBehaviour
     void updateAirPlaneTail(float time)
     {
         theTail.transform.localScale = new Vector3(1f,time,1f);
+    }
+
+    void finalAirPlaneTail(float time)
+    {
+        theTail.transform.localScale = new Vector3(1f, time, 1f);
+        addToList("AirPlaneTail", airPlanePosition, time);
+    }
+
+    void addToList(string type, Vector3 position, float airPlaneTailTime)
+    {
+        EnemyFire fire = new EnemyFire(type, position, airPlaneTailTime);
+        enemyFires.Add(fire);
     }
 
 }
