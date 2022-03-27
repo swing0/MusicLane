@@ -81,7 +81,6 @@ public class EditHitObject : MonoBehaviour
         airPlanePosition = transform.position - new Vector3(0f, beatTempo * LONGPRESS, 0f);
         Instantiate(airPlane, airPlanePosition, airPlane.transform.rotation);
         isCanCreateAirPlane = false;
-        addToList("AirPlane", airPlanePosition, 0);
         createAirPlaneTail();
     }
 
@@ -99,6 +98,7 @@ public class EditHitObject : MonoBehaviour
     void finalAirPlaneTail(float time)
     {
         theTail.transform.localScale = new Vector3(1f, time, 1f);
+        addToList("AirPlane", airPlanePosition, time);
         addToList("AirPlaneTail", airPlanePosition, time);
     }
 

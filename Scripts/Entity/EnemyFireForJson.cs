@@ -7,7 +7,10 @@ public class EnemyFireForJson
     private string position; //位置
     private float airPlaneTailTime; //AirPlaneTail 的持续时间(长度)
 
+    public EnemyFireForJson()
+    {
 
+    }
 
     public EnemyFireForJson(string type, string position, float airPlaneTailTime)
     {

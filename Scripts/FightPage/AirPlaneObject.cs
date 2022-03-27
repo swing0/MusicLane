@@ -7,12 +7,12 @@ public class AirPlaneObject : MonoBehaviour
 
     public bool canBePressed;
     public GameObject goodEffect, greatEffect, perfectEffect, missEffect;
+    public float airPlaneTailTime = 0f;
 
     private bool isKeyDown = false;
     private KeyCode keyToPress; // 接收hitController中的值
     private HitController hitController;
     private float pressTime;
-    private float airPlaneTailTime = 2f;
     private Vector3 airPlanePosition;
 
 

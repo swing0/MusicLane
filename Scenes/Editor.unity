@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatTempo: 180
   hasStarted: 0
+  theMusic: {fileID: 2064987408}
 --- !u!1 &2022527314
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +610,7 @@ GameObject:
   - component: {fileID: 2064987409}
   - component: {fileID: 2064987408}
   m_Layer: 0
-  m_Name: Audio Track
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,8 +626,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cb96fd07f78fdbe41906735f2b5bbc7a, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 848d4e114026824449e78a17db28d991, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

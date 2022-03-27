@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5750614298248408079}
   - component: {fileID: 5750614298248408078}
   m_Layer: 0
-  m_Name: redAirplane
+  m_Name: RedAirplane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

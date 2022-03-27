@@ -5,10 +5,10 @@ using UnityEngine;
 public class AirPlaneTailObject : MonoBehaviour
 {
     public bool canBePressed;
+    public float airPlaneTailTime = 1f;
 
     private bool isKeyDown = false;
     private float pressTime;
-    private float airPlaneTailTime = 2f;
     private KeyCode keyToPress; // 接收hitController中的值
     private Vector3 airPlaneTailPosition;
     private HitController hitController;
@@ -61,8 +61,7 @@ public class AirPlaneTailObject : MonoBehaviour
         if (other.tag == "Activator")
         {
             canBePressed = false;
-            gameObject.SetActive(false);
-
+            gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
 

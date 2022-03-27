@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
                 startPlaying = true;
                 theBS.hasStarted = true;
 
-                Invoke("PlayMusic", 3f);
+                Invoke("PlayMusic", 1.9f);
             }
         }
         else

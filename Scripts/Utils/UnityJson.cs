@@ -24,11 +24,6 @@ public class UnityJson
 
         List<EnemyFire> fire = JsonToObject(json);
 
-        fire.ForEach(delegate (EnemyFire fires)
-        {
-            Debug.Log(fires);
-        });
-
         return fire;
 
     }
