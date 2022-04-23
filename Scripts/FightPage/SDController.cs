@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using Spine;
+using System;
 
 public class SDController : MonoBehaviour
 {
@@ -9,13 +11,33 @@ public class SDController : MonoBehaviour
 
     private static float LONGPRESS = 0.25f; //按钮超过LONGPRESS判定为长按
     private float pressTime = 0f;
-    private SkeletonAnimation skeletonAnimation;
+    SkeletonAnimation skeletonAnimation;
+    Spine.AnimationState animationState;
+    Skeleton skeleton;
+
+    private void Awake()
+    {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        if (skeletonAnimation.skeletonDataAsset != null)
+        {
+            skeleton = skeletonAnimation.Skeleton;
+            animationState = skeletonAnimation.AnimationState;
+            animationState.SetAnimation(0, "move", false);
+            animationState.TimeScale = 1.5f;
+
+
+            animationState.Complete += OnSpineAnimationComplete;
+        }
+    }
+
+    private void OnSpineAnimationComplete(TrackEntry trackEntry)
+    {
+        animationState.SetAnimation(0, "move", false);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        skeletonAnimation = this.GetComponent<SkeletonAnimation>();
-        if (skeletonAnimation.skeletonDataAsset != null) skeletonAnimation.state.SetAnimation(0, "move", true);
     }
 
     // Update is called once per frame
@@ -38,6 +60,7 @@ public class SDController : MonoBehaviour
             }
         }
     }
+
 
     private bool getKeysDown(List<KeyCode> codes)
     {
