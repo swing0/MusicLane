@@ -9,6 +9,7 @@ public class EditScroller : MonoBehaviour
     public float beatTempo; // 默认180
     public bool hasStarted;
     public AudioSource theMusic;
+    public string jsonName;
 
 
     private string fileName;    // 定义一个string类型的变量 （文件名）
@@ -19,7 +20,7 @@ public class EditScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 60f;
 
-        fileName = FileUtil.getFileName("悠久");
+        fileName = FileUtil.getFileName(jsonName,"json");
         
     }
 
@@ -35,7 +36,7 @@ public class EditScroller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             getAllFires();
-            UnityJson.Saves(enemyFires, fileName);
+            FileUtil.saveFire(enemyFires, fileName);
         }
     }
 

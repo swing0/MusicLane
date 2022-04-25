@@ -8,6 +8,7 @@ public class BeatScroller : MonoBehaviour
     public float beatTempo; // Ä¬ÈÏ180
     public bool hasStarted;
     public GameObject pong, redAirPlane, airPlaneTail;
+    public string jsonName;
 
     private string fileName;
     private List<EnemyFire> enemyFires = new List<EnemyFire>();
@@ -16,7 +17,7 @@ public class BeatScroller : MonoBehaviour
     void Start()
     {
         beatTempo = beatTempo / 60f;
-        CreateEnemyByFile("ÓÆ¾Ã");
+        CreateEnemyByFile(jsonName);
     }
 
     // Update is called once per frame
@@ -40,10 +41,10 @@ public class BeatScroller : MonoBehaviour
         }
     }
 
-    private void CreateEnemyByFile(string fileName)
+    private void CreateEnemyByFile(string name)
     {
-        fileName = FileUtil.getFileName(fileName);
-        enemyFires = UnityJson.Read(fileName);
+        fileName = FileUtil.getFileName(name,"json");
+        enemyFires = FileUtil.getFire(fileName);
         enemyFires.ForEach(delegate (EnemyFire enemyFire)
         {
             switch (enemyFire.Type)

@@ -515,6 +515,7 @@ MonoBehaviour:
   beatTempo: 180
   hasStarted: 0
   theMusic: {fileID: 2064987408}
+  jsonName: "\u60A0\u4E45.json"
 --- !u!1 &2022527314
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064987409}
   - component: {fileID: 2064987408}
+  - component: {fileID: 2064987410}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -626,7 +628,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 848d4e114026824449e78a17db28d991, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cdd33d7d916a06f4985402673c0c1488, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -727,6 +729,20 @@ Transform:
   m_Father: {fileID: 1948495262}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064987410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064987407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb5be7a7c9349d48921d5765cdb65db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: "\u957F\u7EF3\u9EBB\u7406\u4E9A - \u60A0\u4E45\u306E\u30AB\u30BF\u30EB\u30B7\u30B9
+    (\u30E9\u30D5\u30A3\u30FC ver_).wav"
 --- !u!4 &6067662856312626688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 676529869921989893, guid: 7f9be981af114584ebb9328a337aff41, type: 3}

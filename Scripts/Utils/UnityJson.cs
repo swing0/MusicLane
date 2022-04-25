@@ -29,7 +29,7 @@ public class UnityJson
     }
 
     // JsonConvert 好像不支持Vector3的json化...
-    public static string ObjectToJson(List<EnemyFire> fire)
+    private static string ObjectToJson(List<EnemyFire> fire)
     {
         List<EnemyFireForJson> enemyFireForJsons = new List<EnemyFireForJson>();
         fire.ForEach(delegate (EnemyFire enemyFire)
@@ -41,7 +41,7 @@ public class UnityJson
         return json;
     }
 
-    public static List<EnemyFire> JsonToObject(string json)
+    private static List<EnemyFire> JsonToObject(string json)
     {
         List<EnemyFire> enemyFires = new List<EnemyFire>();
         List<EnemyFireForJson> enemyFireForJsons = JsonConvert.DeserializeObject<List<EnemyFireForJson>>(json);

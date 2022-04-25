@@ -513,7 +513,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2033513234}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999817
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -777,7 +777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000020016572}
+  m_AnchoredPosition: {x: 0, y: 0.00056882284}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1139679009
@@ -858,8 +858,9 @@ GameObject:
   - component: {fileID: 1147444866}
   - component: {fileID: 1147444868}
   - component: {fileID: 1147444867}
+  - component: {fileID: 1147444869}
   m_Layer: 5
-  m_Name: mianImage
+  m_Name: mainImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,7 +906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 69eb1927587d48842a5c8b60516378af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f36367d8bc69f7841b7e4d7d0151d83e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -923,6 +924,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147444865}
   m_CullTransparentMesh: 1
+--- !u!114 &1147444869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147444865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0d0f30581a9c14093cc883c45a28d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageName: nengdai.png
 --- !u!1 &1251011585
 GameObject:
   m_ObjectHideFlags: 0
