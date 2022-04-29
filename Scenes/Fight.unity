@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &169186247
 Transform:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: e1a47ef0e22493c4995ba71cbca9a5f0, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 9ab066fafadd76242bcc70a18b59fd6f, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -209,7 +209,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf4ee5a4545010146a082c2257cc5bd5, type: 2}
+  - {fileID: 2100000, guid: e4d7c17ca9085fd4484a70f2b431ca4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -641,8 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb5be7a7c9349d48921d5765cdb65db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: "\u957F\u7EF3\u9EBB\u7406\u4E9A - \u60A0\u4E45\u306E\u30AB\u30BF\u30EB\u30B7\u30B9
-    (\u30E9\u30D5\u30A3\u30FC ver_).wav"
+  musicName: "\u60A0\u4E45\u306E\u30AB\u30BF\u30EB\u30B7\u30B902156.wav"
 --- !u!1 &460773357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1333477511
 Transform:
   m_ObjectHideFlags: 0
@@ -1457,7 +1456,7 @@ MonoBehaviour:
   pong: {fileID: 1270681289742704150, guid: ed708db79455a4a4cad2f4ba937e2ef4, type: 3}
   redAirPlane: {fileID: 5750614298248408067, guid: 244016449620b574e94935e13c253ccc, type: 3}
   airPlaneTail: {fileID: 767111860361327135, guid: 5ec01132b83513d4391d018d9521e079, type: 3}
-  jsonName: "\u60A0\u4E45.json"
+  jsonName: "\u60A0\u4E45\u306E\u30AB\u30BF\u30EB\u30B7\u30B902156.json"
 --- !u!1 &1448810444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1850072476
 Transform:
   m_ObjectHideFlags: 0

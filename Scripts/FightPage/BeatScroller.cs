@@ -43,7 +43,7 @@ public class BeatScroller : MonoBehaviour
 
     private void CreateEnemyByFile(string name)
     {
-        fileName = FileUtil.getFileName(name,"json");
+        fileName = FileUtil.getFileName(name, "map/啼消のカタルシス02156");
         enemyFires = FileUtil.getFire(fileName);
         enemyFires.ForEach(delegate (EnemyFire enemyFire)
         {

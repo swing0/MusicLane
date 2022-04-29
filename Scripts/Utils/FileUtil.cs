@@ -60,7 +60,7 @@ public class FileUtil
 
     public static Sprite getSprite(string imageName)
     {
-        string fileName = getFileName(imageName, "backImage");
+        string fileName = getFileName(imageName, "map/悠久のカタルシス02156");
         FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
         fileStream.Seek(0, SeekOrigin.Begin);
         //创建文件长度缓冲区

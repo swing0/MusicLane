@@ -8,7 +8,7 @@ public class getMusic : MonoBehaviour
 
     private void Awake()
     {
-        musicName = FileUtil.getFileName(musicName,"music");
+        musicName = FileUtil.getFileName(musicName, "map/啼消のカタルシス02156");
         AudioSource audio = this.GetComponent<AudioSource>();
         StartCoroutine(FileUtil.IELoadExternalAudioWebRequest(musicName, audio, AudioType.WAV));
 

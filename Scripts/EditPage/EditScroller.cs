@@ -20,7 +20,7 @@ public class EditScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 60f;
 
-        fileName = FileUtil.getFileName(jsonName,"json");
+        fileName = FileUtil.getFileName(jsonName, "map/啼消のカタルシス02156");
         
     }
 
