@@ -4,25 +4,49 @@ using UnityEngine;
 
 public class getMusic : MonoBehaviour
 {
-    public string musicName;
+    public string musicPath;
+    public string filePath;
+
+    private AudioSource audio;
+    private bool changePlay = false;
 
     private void Awake()
     {
-        musicName = FileUtil.getFileName(musicName, "map/啼消のカタルシス02156");
-        AudioSource audio = this.GetComponent<AudioSource>();
-        StartCoroutine(FileUtil.IELoadExternalAudioWebRequest(musicName, audio, AudioType.WAV));
+        audio = this.GetComponent<AudioSource>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (changePlay)
+        { 
+
+            if (audio.isPlaying)
+            {
+                changePlay = false;
+            }
+            else
+            {
+                audio.Play();
+            }
+        }
+    }
+
+    public void updateMusic()
+    {
+
+        string fullName = FileUtil.getFileName(musicPath, filePath);
+        StartCoroutine(FileUtil.IELoadExternalAudioWebRequest(fullName, audio, AudioType.WAV));
 
     }
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void playMusic()
     {
-        
+        changePlay = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void removeClip()
     {
-        
+        audio.clip = null;
     }
 }

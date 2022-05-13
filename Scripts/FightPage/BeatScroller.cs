@@ -8,16 +8,17 @@ public class BeatScroller : MonoBehaviour
     public float beatTempo; // 潮範180
     public bool hasStarted;
     public GameObject pong, redAirPlane, airPlaneTail;
-    public string jsonName;
 
-    private string fileName;
+
+    private string filePathName;
     private List<EnemyFire> enemyFires = new List<EnemyFire>();
 
     // Start is called before the first frame update
     void Start()
     {
         beatTempo = beatTempo / 60f;
-        CreateEnemyByFile(jsonName);
+        filePathName = GameObject.Find("CurrentMap").GetComponent<CurrentMap>().currentFilePathName;
+        CreateEnemyByFile();
     }
 
     // Update is called once per frame
@@ -41,9 +42,10 @@ public class BeatScroller : MonoBehaviour
         }
     }
 
-    private void CreateEnemyByFile(string name)
+    private void CreateEnemyByFile()
     {
-        fileName = FileUtil.getFileName(name, "map/啼消のカタルシス02156");
+        string jsonName = FileUtil.getMapMessageByFilePathName(filePathName).PongJsonName;
+        string fileName = FileUtil.getFileName(jsonName, filePathName);
         enemyFires = FileUtil.getFire(fileName);
         enemyFires.ForEach(delegate (EnemyFire enemyFire)
         {

@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class UnityJson
 {
+
+
+    // 关卡内击打点的读写
     public static void Saves(List<EnemyFire> fire, string fileName)
 
     {
@@ -15,7 +18,6 @@ public class UnityJson
         File.WriteAllText(fileName, json, Encoding.UTF8);    //utf8 万国码避免乱码； 
 
     }
-
     public static List<EnemyFire> Read(string fileName)
 
     {
@@ -27,6 +29,28 @@ public class UnityJson
         return fire;
 
     }
+
+    // 关卡图片、音乐等信息的读写
+    public static void SaveMessage(MapMessage mapMessage)
+
+    {
+        string fileName = Application.streamingAssetsPath + "/map/" + mapMessage.FilePathName + "/mapMessage.json";
+        string json = JsonConvert.SerializeObject(mapMessage);
+
+        File.WriteAllText(fileName, json, Encoding.UTF8);    //utf8 万国码避免乱码； 
+
+    }
+    public static MapMessage ReadMessage(string fileName)
+
+    {
+
+        string json = File.ReadAllText(fileName, Encoding.UTF8);
+
+        return JsonConvert.DeserializeObject<MapMessage>(json);
+
+
+    }
+
 
     // JsonConvert 好像不支持Vector3的json化...
     private static string ObjectToJson(List<EnemyFire> fire)

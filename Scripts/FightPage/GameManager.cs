@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public string filePathName;
+
     //public int currentScore;
     //public int scorePerNote = 100;
     //public int scorePerGoodNote = 125;
@@ -38,6 +40,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        filePathName = GameObject.Find("CurrentMap").GetComponent<CurrentMap>().currentFilePathName;
+
+        // …Ë÷√“Ù¿÷
+        getMusic music = GameObject.Find("Audio").GetComponent<getMusic>();
+        music.musicPath = FileUtil.getMapMessageByFilePathName(filePathName).MusicPath;
+        music.filePath = filePathName;
+        music.removeClip();
+        music.updateMusic();
+
         //scoreText.text = "Score: 0";
         //currentmultiplier = 1;
 

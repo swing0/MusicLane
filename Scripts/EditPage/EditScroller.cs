@@ -20,8 +20,11 @@ public class EditScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 60f;
 
-        fileName = FileUtil.getFileName(jsonName, "map/ÓÆ¾Ã¤Î¥«¥¿¥ë¥·¥¹02156");
-        
+        fileName = FileUtil.getFileName(jsonName, "¥·¥°¥Ê¥ë");
+
+        getMusic audio = GameObject.Find("Audio").GetComponent<getMusic>();
+        audio.updateMusic();
+
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class EditScroller : MonoBehaviour
         {
             getAllFires();
             FileUtil.saveFire(enemyFires, fileName);
+            MapMessage mapMessage = AddMapMessage();
+            FileUtil.saveFireMapMessage(mapMessage);
         }
     }
 
@@ -48,6 +53,25 @@ public class EditScroller : MonoBehaviour
         }
     }
 
+
+    private MapMessage AddMapMessage()
+    {
+
+        MapMessage mapMessage = new MapMessage();
+        mapMessage.FilePathName = "¥·¥°¥Ê¥ë";
+        mapMessage.ImageName = "qiye.jpg";
+        mapMessage.MusicName = "¥·¥°¥Ê¥ë";
+        mapMessage.MusicPath = "¥·¥°¥Ê¥ë.wav";
+        mapMessage.Level = "6";
+        mapMessage.PongJsonName = "¥·¥°¥Ê¥ë.json";
+        mapMessage.Artist = "Beverly (¥Ó¥Ð¥ê©`)";
+        mapMessage.MaxScore = "123456";
+        mapMessage.MaxLevel = "S";
+        Dictionary<string, string> wifes = new Dictionary<string, string>();
+        wifes.Add("middle", "qiye");
+        mapMessage.WifeNames = wifes;
+        return mapMessage;
+    }
 
 
     private void getAllFires()

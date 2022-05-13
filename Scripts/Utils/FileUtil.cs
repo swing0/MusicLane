@@ -17,7 +17,7 @@ public class FileUtil
             fileName = getRandomCode();
         }
 
-        string path = Application.streamingAssetsPath + "/" + filePath;      //给变量赋值指定路径
+        string path = Application.streamingAssetsPath + "/map/" + filePath;      //给变量赋值指定路径
 
         if (!Directory.Exists(path))               //判断路径是否存在不存在就创建一个；     
         {
@@ -36,17 +36,7 @@ public class FileUtil
     }
 
 
-    public static string getRandomCode()
-    {
-        char[] chars = str.ToCharArray();
-        StringBuilder strRan = new StringBuilder();
-        System.Random ran = new System.Random();
-        for (int i = 0; i < 10; i++)
-        {
-            strRan.Append(chars[ran.Next(0, 36)]);
-        }
-        return strRan.ToString();
-    }
+
 
     public static void saveFire(List<EnemyFire> fire, string fileName)
     {
@@ -58,9 +48,44 @@ public class FileUtil
         return UnityJson.Read(fileName);
     }
 
-    public static Sprite getSprite(string imageName)
+
+    public static void saveFireMapMessage(MapMessage mapMessage)
     {
-        string fileName = getFileName(imageName, "map/悠久のカタルシス02156");
+        UnityJson.SaveMessage(mapMessage);
+    }
+
+    //public static MapMessage getMapMessage(string filePathNmae){}
+
+    public static List<MapMessage> getAllCell()
+    {
+        string path = Application.streamingAssetsPath + "/map/";
+        string jsonName = "/mapMessage.json";
+        List<MapMessage> mapMessages = new List<MapMessage>();
+        if (Directory.Exists(path))
+        {
+            DirectoryInfo direction = new DirectoryInfo(path);
+            DirectoryInfo[] folders = direction.GetDirectories("*", SearchOption.TopDirectoryOnly);
+            for(int i = 0; i < folders.Length; i++)
+            {
+                string fileName = path + folders[i].Name + jsonName;
+                MapMessage mapMessage = UnityJson.ReadMessage(fileName);
+                mapMessages.Add(mapMessage);
+            }
+
+        }
+        return mapMessages;
+    }
+
+    public static MapMessage getMapMessageByFilePathName(string filePathName)
+    {
+        string fileName = Application.streamingAssetsPath + "/map/" + filePathName + "/mapMessage.json";
+        MapMessage mapMessage = UnityJson.ReadMessage(fileName);
+        return mapMessage;
+    }
+
+    public static Sprite getSprite(string imageName, string filePath)
+    {
+        string fileName = getFileName(imageName, filePath);
         FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
         fileStream.Seek(0, SeekOrigin.Begin);
         //创建文件长度缓冲区
@@ -83,6 +108,19 @@ public class FileUtil
         return sprite;
     }
 
+    public static string getRandomCode()
+    {
+        char[] chars = str.ToCharArray();
+        StringBuilder strRan = new StringBuilder();
+        System.Random ran = new System.Random();
+        for (int i = 0; i < 10; i++)
+        {
+            strRan.Append(chars[ran.Next(0, 36)]);
+        }
+        return strRan.ToString();
+    }
+
+    [System.Obsolete]
     public static IEnumerator IELoadExternalAudioWebRequest(string _url, AudioSource audioSource, AudioType _audioType)
     {
         UnityWebRequest _unityWebRequest = UnityWebRequestMultimedia.GetAudioClip(_url, _audioType);

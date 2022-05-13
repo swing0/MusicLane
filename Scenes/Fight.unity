@@ -641,7 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb5be7a7c9349d48921d5765cdb65db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: "\u60A0\u4E45\u306E\u30AB\u30BF\u30EB\u30B7\u30B902156.wav"
+  musicPath: 
+  filePath: 
 --- !u!1 &460773357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1457,6 @@ MonoBehaviour:
   pong: {fileID: 1270681289742704150, guid: ed708db79455a4a4cad2f4ba937e2ef4, type: 3}
   redAirPlane: {fileID: 5750614298248408067, guid: 244016449620b574e94935e13c253ccc, type: 3}
   airPlaneTail: {fileID: 767111860361327135, guid: 5ec01132b83513d4391d018d9521e079, type: 3}
-  jsonName: "\u60A0\u4E45\u306E\u30AB\u30BF\u30EB\u30B7\u30B902156.json"
 --- !u!1 &1448810444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1826,7 @@ MonoBehaviour:
   theMusic: {fileID: 432881896}
   startPlaying: 0
   theBS: {fileID: 1439378378}
+  filePathName: 
 --- !u!4 &2016151964
 Transform:
   m_ObjectHideFlags: 0

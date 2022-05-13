@@ -6,19 +6,16 @@ using UnityEngine.UI;
 public class getImage : MonoBehaviour
 {
     public string imageName;
+    public string filePathName;
     private void Awake()
     {
-        this.GetComponent<Image>().sprite = FileUtil.getSprite(imageName);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void updateImage()
     {
-        
+        this.GetComponent<Image>().sprite = FileUtil.getSprite(imageName, filePathName);
     }
+
+
 }
