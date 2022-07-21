@@ -37,7 +37,7 @@ public class getCells : MonoBehaviour
         cell.GetComponent<OneCell>().musicPath = mapMessage.MusicPath;
         cell.GetComponent<OneCell>().filePathName = mapMessage.FilePathName;
 
-
+        // todo …Ë÷√Ω¢ƒÔ
 
 
     }

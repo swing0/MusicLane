@@ -17,17 +17,7 @@ public class SDController : MonoBehaviour
 
     private void Awake()
     {
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
-        if (skeletonAnimation.skeletonDataAsset != null)
-        {
-            skeleton = skeletonAnimation.Skeleton;
-            animationState = skeletonAnimation.AnimationState;
-            animationState.SetAnimation(0, "move", false);
-            animationState.TimeScale = 1.5f;
-
-
-            animationState.Complete += OnSpineAnimationComplete;
-        }
+        
     }
 
     private void OnSpineAnimationComplete(TrackEntry trackEntry)
@@ -38,6 +28,7 @@ public class SDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initSkeletion();
     }
 
     // Update is called once per frame
@@ -52,15 +43,36 @@ public class SDController : MonoBehaviour
             }
             if (getKeys(keyCodes))
             {
-                pressTime += Time.deltaTime;
                 if (pressTime > LONGPRESS)
+                pressTime += Time.deltaTime;
                 {
-                    skeletonAnimation.state.SetAnimation(0, "attack_left", false);
+                    if (animationState.ToString() == "attack_left")
+                    {
+
+                    }
+                    else
+                    {
+                        skeletonAnimation.state.SetAnimation(0, "attack_left", false);
+                    }
                 }
             }
         }
     }
 
+    public void initSkeletion()
+    {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        if (skeletonAnimation.skeletonDataAsset != null)
+        {
+            skeleton = skeletonAnimation.Skeleton;
+            animationState = skeletonAnimation.AnimationState;
+            animationState.SetAnimation(0, "move", false);
+            animationState.TimeScale = 1.5f;
+
+
+            animationState.Complete += OnSpineAnimationComplete;
+        }
+    }
 
     private bool getKeysDown(List<KeyCode> codes)
     {

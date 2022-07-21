@@ -2141,7 +2141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875725c0360569c47ac93a6da01b185a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scence_num: 3
+  scence_num: 2
   isSelect: 1
 --- !u!114 &1935519232
 MonoBehaviour:

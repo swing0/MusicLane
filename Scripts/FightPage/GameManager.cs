@@ -49,6 +49,12 @@ public class GameManager : MonoBehaviour
         music.removeClip();
         music.updateMusic();
 
+        // …Ë÷√±≥æ∞Õº
+        getImage image = GameObject.Find("backImage").GetComponent<getImage>();
+        image.filePathName = filePathName;
+        image.imageName = FileUtil.getMapMessageByFilePathName(filePathName).ImageName;
+        image.updateImage();
+
         //scoreText.text = "Score: 0";
         //currentmultiplier = 1;
 
