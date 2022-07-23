@@ -43,8 +43,8 @@ public class SDController : MonoBehaviour
             }
             if (getKeys(keyCodes))
             {
-                if (pressTime > LONGPRESS)
                 pressTime += Time.deltaTime;
+                if (pressTime > LONGPRESS)
                 {
                     if (animationState.ToString() == "attack_left")
                     {

@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &169186247
 Transform:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 9ab066fafadd76242bcc70a18b59fd6f, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 181d10ee0f5bcce4e99056cf05f6aef5, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: 
+  _animationName: attack
   loop: 0
   timeScale: 1
 --- !u!23 &169186249
@@ -311,7 +311,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e4d7c17ca9085fd4484a70f2b431ca4e, type: 2}
+  - {fileID: 2100000, guid: 474bd56f503038a489df781323d36f88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2012,6 +2012,9 @@ MonoBehaviour:
   startPlaying: 0
   theBS: {fileID: 1439378378}
   filePathName: 
+  leftSD: {fileID: 1333477510}
+  midSD: {fileID: 169186246}
+  rightSD: {fileID: 1850072475}
 --- !u!4 &2016151964
 Transform:
   m_ObjectHideFlags: 0

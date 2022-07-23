@@ -1,7 +1,9 @@
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -54,7 +56,6 @@ public class FileUtil
         UnityJson.SaveMessage(mapMessage);
     }
 
-    //public static MapMessage getMapMessage(string filePathNmae){}
 
     public static List<MapMessage> getAllCell()
     {
@@ -134,6 +135,17 @@ public class FileUtil
             AudioClip _audioClip = DownloadHandlerAudioClip.GetContent(_unityWebRequest);
             audioSource.clip = _audioClip;
         }
+    }
+
+
+    // 初始化SD小人
+    public static void initSDObject(string name,GameObject SDObject)
+    {
+        SkeletonDataAsset res = (SkeletonDataAsset)AssetDatabase.LoadAssetAtPath("Assets/SD/" + name + "/" + name + "_SkeletonData.asset", typeof(SkeletonDataAsset));
+        SkeletonAnimation skeletonAnimation = SDObject.GetComponent<SkeletonAnimation>();
+        skeletonAnimation.skeletonDataAsset = res;
+        skeletonAnimation.Initialize(true);
+        SDObject.GetComponent<SDController>().initSkeletion();
     }
 
 }

@@ -27,6 +27,7 @@ public class getCells : MonoBehaviour
         cell.transform.Find("musicName").GetComponent<Text>().text = mapMessage.MusicName;
         cell.transform.Find("artist").GetComponent<Text>().text = mapMessage.Artist;
         cell.transform.Find("level").GetComponent<Text>().text = mapMessage.Level;
+        cell.GetComponent<OneCell>().wifes = mapMessage.WifeNames;
 
         // …Ë÷√Õº∆¨
         cell.GetComponent<Image>().sprite = FileUtil.getSprite(mapMessage.ImageName,mapMessage.FilePathName);
@@ -37,7 +38,7 @@ public class getCells : MonoBehaviour
         cell.GetComponent<OneCell>().musicPath = mapMessage.MusicPath;
         cell.GetComponent<OneCell>().filePathName = mapMessage.FilePathName;
 
-        // todo …Ë÷√Ω¢ƒÔ
+       
 
 
     }

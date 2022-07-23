@@ -48,10 +48,7 @@ public class SelectChara : MonoBehaviour
     {
         var text = this.gameObject.GetComponent<Dropdown>().options[index].text;
         string SDName = DictionaryUtil.getCharaSDValue(text);
-        SkeletonDataAsset res = (SkeletonDataAsset)AssetDatabase.LoadAssetAtPath("Assets/SD/" + SDName + "/" + SDName + "_SkeletonData.asset",typeof(SkeletonDataAsset));
-        SkeletonAnimation skeletonAnimation = SDObject.GetComponent<SkeletonAnimation>();
-        skeletonAnimation.skeletonDataAsset = res;
-        skeletonAnimation.Initialize(true);
-        SDObject.GetComponent<SDController>().initSkeletion();
+
+        FileUtil.initSDObject(SDName,SDObject);
     }
 }

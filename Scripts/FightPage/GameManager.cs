@@ -1,3 +1,4 @@
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public string filePathName;
+
+    public GameObject leftSD, midSD, rightSD;
 
     //public int currentScore;
     //public int scorePerNote = 100;
@@ -39,12 +42,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         instance = this;
         filePathName = GameObject.Find("CurrentMap").GetComponent<CurrentMap>().currentFilePathName;
 
+        MapMessage mapMessage = FileUtil.getMapMessageByFilePathName(filePathName);
         // …Ë÷√“Ù¿÷
         getMusic music = GameObject.Find("Audio").GetComponent<getMusic>();
-        music.musicPath = FileUtil.getMapMessageByFilePathName(filePathName).MusicPath;
+        music.musicPath = mapMessage.MusicPath;
         music.filePath = filePathName;
         music.removeClip();
         music.updateMusic();
@@ -52,9 +58,14 @@ public class GameManager : MonoBehaviour
         // …Ë÷√±≥æ∞Õº
         getImage image = GameObject.Find("backImage").GetComponent<getImage>();
         image.filePathName = filePathName;
-        image.imageName = FileUtil.getMapMessageByFilePathName(filePathName).ImageName;
+        image.imageName = mapMessage.ImageName;
         image.updateImage();
 
+        // …Ë÷√Ω¢ƒÔ
+        Dictionary<string, string> wifeNames = mapMessage.WifeNames;
+        FileUtil.initSDObject(wifeNames["leftSD"], leftSD);
+        FileUtil.initSDObject(wifeNames["midSD"], midSD);
+        FileUtil.initSDObject(wifeNames["rightSD"], rightSD);
         //scoreText.text = "Score: 0";
         //currentmultiplier = 1;
 

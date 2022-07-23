@@ -9,7 +9,7 @@ public class OneCell : MonoBehaviour, IPointerDownHandler
     public string imageName;
     public string filePathName;
     public string musicPath;
-
+    public Dictionary<string, string> wifes;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +38,24 @@ public class OneCell : MonoBehaviour, IPointerDownHandler
         music.updateMusic();
         music.playMusic();
 
+
         // 设置当前选中的文件信息
         CurrentMap button = GameObject.Find("CurrentMap").GetComponent<CurrentMap>();
         button.currentFilePathName = filePathName;
+
+
+        // todo 设置舰娘
+        string leftSDName = wifes["leftSD"];
+        string midSDName = wifes["midSD"];
+        string rightSDName = wifes["rightSD"];
+        GameObject leftSD = GameObject.Find("leftSD");
+        FileUtil.initSDObject(leftSDName, leftSD);
+        GameObject midSD = GameObject.Find("midSD");
+        FileUtil.initSDObject(midSDName, midSD);
+        GameObject rightSD = GameObject.Find("rightSD");
+        FileUtil.initSDObject(rightSDName, rightSD);
+
+
     }
 
 

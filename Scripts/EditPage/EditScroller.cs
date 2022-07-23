@@ -68,7 +68,9 @@ public class EditScroller : MonoBehaviour
         mapMessage.MaxScore = "123456";
         mapMessage.MaxLevel = "S";
         Dictionary<string, string> wifes = new Dictionary<string, string>();
-        wifes.Add("middle", "qiye");
+        wifes.Add("leftSD", "qiye");
+        wifes.Add("midSD", "null");
+        wifes.Add("rightSD", "chicheng");
         mapMessage.WifeNames = wifes;
         return mapMessage;
     }
