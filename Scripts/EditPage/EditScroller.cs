@@ -10,6 +10,7 @@ public class EditScroller : MonoBehaviour
     public bool hasStarted;
     public AudioSource theMusic;
     public string jsonName;
+    private string filePathName;
 
 
     private string fileName;    // 定义一个string类型的变量 （文件名）
@@ -20,7 +21,24 @@ public class EditScroller : MonoBehaviour
     {
         beatTempo = beatTempo / 60f;
 
-        fileName = FileUtil.getFileName(jsonName, "シグナル");
+        filePathName = GameObject.Find("CurrentMap").GetComponent<CurrentMap>().currentFilePathName;
+
+        MapMessage mapMessage = FileUtil.getMapMessageByFilePathName(filePathName);
+        // 设置音乐
+        getMusic music = GameObject.Find("Audio").GetComponent<getMusic>();
+        music.musicPath = mapMessage.MusicPath;
+        music.filePath = filePathName;
+        music.removeClip();
+        music.updateMusic();
+
+
+        // 设置背景图
+        getImage image = GameObject.Find("backImage").GetComponent<getImage>();
+        image.filePathName = filePathName;
+        image.imageName = mapMessage.ImageName;
+        image.updateImage();
+
+        fileName = FileUtil.getFileName(jsonName, filePathName);
 
         getMusic audio = GameObject.Find("Audio").GetComponent<getMusic>();
         audio.updateMusic();
