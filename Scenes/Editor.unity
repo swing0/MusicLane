@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 3733592832929753736}
   - component: {fileID: 3733592832929753740}
   - component: {fileID: 3733592832929753741}
-  - component: {fileID: 3733592832929753743}
+  - component: {fileID: 3733592832929753742}
   m_Layer: 0
   m_Name: sea_sairenhexin
   m_TagString: Untagged
@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   airPlaneTailTime: 0
---- !u!114 &3733592832929753743
+--- !u!114 &3733592832929753742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1529,7 +1529,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3733592832929753739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1efc213252ce12649b09eef4ed9fcd6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 62aeef3916ac5fd4aa945dc9579d99fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &6067662856312626688 stripped

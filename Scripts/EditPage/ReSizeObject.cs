@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReSizeObject : MonoBehaviour
 {
-
+    public bool canReSize = false; 
     float scale = 0.05f;
     // Start is called before the first frame update
     void Start()
@@ -15,14 +15,17 @@ public class ReSizeObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //通过键盘滑轮控制物体的缩放
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (canReSize)
         {
-            transform.localScale += new Vector3(0, 1 * scale, 0);
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && transform.localScale.y > 0.25)
-        {
-            transform.localScale -= new Vector3(0, 1 * scale, 0);
+            //通过键盘滑轮控制物体的缩放
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                transform.localScale += new Vector3(0, 1 * scale, 0);
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && transform.localScale.y > 0.25)
+            {
+                transform.localScale -= new Vector3(0, 1 * scale, 0);
+            }
         }
     }
 }
