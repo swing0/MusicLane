@@ -5,12 +5,11 @@ using UnityEngine.EventSystems;
 
 public class DragObjectWithParent : MonoBehaviour
 {
-
-    float scale = 0.05f;
+    public GameObject mainCamera;
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -29,10 +28,12 @@ public class DragObjectWithParent : MonoBehaviour
     void OnMouseEnter()
     {
         gameObject.transform.parent.GetComponent<ReSizeObject>().canReSize = true;
+        mainCamera.GetComponent<MoveCamera>().canReSize = false;
     }
 
     void OnMouseExit()
     {
         gameObject.transform.parent.GetComponent<ReSizeObject>().canReSize = false;
+        mainCamera.GetComponent<MoveCamera>().canReSize = true;
     }
 }

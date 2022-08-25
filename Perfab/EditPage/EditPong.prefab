@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8028773066345395744
+--- !u!1 &7588367764286832380
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8028773066345395757}
-  - component: {fileID: 8028773066345395758}
+  - component: {fileID: 7588367764286832381}
+  - component: {fileID: 7588367764286832376}
+  - component: {fileID: 7588367764286832379}
+  - component: {fileID: 7588367764286832378}
+  - component: {fileID: 7588367764286832383}
+  - component: {fileID: 200741178}
   m_Layer: 0
   m_Name: EditPong
   m_TagString: Untagged
@@ -17,28 +21,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8028773066345395757
+--- !u!4 &7588367764286832381
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8028773066345395744}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -4.5, y: 11.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: -90}
+  m_GameObject: {fileID: 7588367764286832380}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 2.18, y: 3.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!212 &8028773066345395758
+--- !u!212 &7588367764286832376
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8028773066345395744}
+  m_GameObject: {fileID: 7588367764286832380}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,3 +88,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7588367764286832379
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588367764286832380}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.14, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
+--- !u!114 &7588367764286832378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588367764286832380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83df0556cf1b9c34fb48aa74226accfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBePressed: 0
+  goodEffect: {fileID: 1474709135634527233, guid: 47036bbb7614cb34791607f93678042f, type: 3}
+  greatEffect: {fileID: 8460155639616689967, guid: 4589d6c4d91766340871e804c633dc9b, type: 3}
+  perfectEffect: {fileID: 3231782588038447211, guid: 7912094ce0ad0a048b6da10ac5ab6f46, type: 3}
+  missEffect: {fileID: 5422378660447067977, guid: 43f87da10a2a7d443ba126f58f6649eb, type: 3}
+--- !u!114 &7588367764286832383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588367764286832380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efc213252ce12649b09eef4ed9fcd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &200741178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588367764286832380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03eae921b801b14cbe58c423731fa80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canRemove: 0

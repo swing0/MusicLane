@@ -10,6 +10,7 @@ public class EditScroller : MonoBehaviour
     public bool hasStarted;
     public AudioSource theMusic;
     public string jsonName;
+    public GameObject pong, redAirPlane, airPlaneTail;
     private string filePathName;
 
 
@@ -42,6 +43,8 @@ public class EditScroller : MonoBehaviour
 
         getMusic audio = GameObject.Find("Audio").GetComponent<getMusic>();
         audio.updateMusic();
+
+        CreateEnemyByFile();
 
     }
 
@@ -93,6 +96,31 @@ public class EditScroller : MonoBehaviour
         return mapMessage;
     }
 
+    private void CreateEnemyByFile()
+    {
+        string jsonName = FileUtil.getMapMessageByFilePathName(filePathName).PongJsonName;
+        string fileName = FileUtil.getFileName(jsonName, filePathName);
+        enemyFires = FileUtil.getFire(fileName);
+        enemyFires.ForEach(delegate (EnemyFire enemyFire)
+        {
+            switch (enemyFire.Type)
+            {
+                case "Pong":
+                    GameObject thePong = Instantiate(pong, enemyFire.Position, pong.transform.rotation);
+                    break;
+                case "AirPlane":
+                    GameObject theAirPlane = Instantiate(redAirPlane, enemyFire.Position, redAirPlane.transform.rotation);
+                    theAirPlane.GetComponent<AirPlaneObject>().airPlaneTailTime = enemyFire.AirPlaneTailTime;
+                    break;
+                case "AirPlaneTail":
+                    GameObject theAirPlaneTail = Instantiate(airPlaneTail, enemyFire.Position - new Vector3(0f, 0.1f, 0f), airPlaneTail.transform.rotation);
+                    theAirPlaneTail.transform.localScale = new Vector3(1f, enemyFire.AirPlaneTailTime, 1f);
+                    theAirPlaneTail.GetComponentInChildren<AirPlaneTailObject>().airPlaneTailTime = enemyFire.AirPlaneTailTime;
+                    break;
+            }
+        }
+        );
+    }
 
     private void getAllFires()
     {
