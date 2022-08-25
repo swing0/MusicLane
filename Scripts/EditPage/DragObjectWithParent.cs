@@ -33,7 +33,16 @@ public class DragObjectWithParent : MonoBehaviour
 
     void OnMouseExit()
     {
+        gameObject.transform.GetComponent<AirPlaneTailObject>().airPlaneTailTime = gameObject.transform.parent.localScale.y;
         gameObject.transform.parent.GetComponent<ReSizeObject>().canReSize = false;
         mainCamera.GetComponent<MoveCamera>().canReSize = true;
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "AirPlane")
+        {
+            other.GetComponent<AirPlaneObject>().airPlaneTailTime = gameObject.transform.GetComponent<AirPlaneTailObject>().airPlaneTailTime;
+        }
     }
 }

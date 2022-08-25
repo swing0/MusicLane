@@ -7,9 +7,10 @@ public class EditHitObject : MonoBehaviour
     public GameObject pong;
     public GameObject airPlane;
     public GameObject airPlaneTail;
-    public List<EnemyFire> enemyFires = new List<EnemyFire>();
+    //public List<EnemyFire> enemyFires = new List<EnemyFire>();
 
     private GameObject theTail;// 当前的tail
+    private GameObject theAirPlane;// 当前的tail
 
     private static float LONGPRESS = 0.25f; //按钮超过LONGPRESS判定为长按
     private float pressTime = 0f;
@@ -72,14 +73,14 @@ public class EditHitObject : MonoBehaviour
         pongPosition = transform.position - new Vector3(0f, beatTempo * LONGPRESS, 0f);
         Instantiate(pong, pongPosition, pong.transform.rotation);
 
-        addToList("Pong",pongPosition,0);
+        //addToList("Pong",pongPosition,0);
 
     }
 
     void createAirPlane()
     {
         airPlanePosition = transform.position - new Vector3(0f, beatTempo * LONGPRESS, 0f);
-        Instantiate(airPlane, airPlanePosition, airPlane.transform.rotation);
+        theAirPlane = Instantiate(airPlane, airPlanePosition, airPlane.transform.rotation);
         isCanCreateAirPlane = false;
         createAirPlaneTail();
     }
@@ -98,14 +99,18 @@ public class EditHitObject : MonoBehaviour
     void finalAirPlaneTail(float time)
     {
         theTail.transform.localScale = new Vector3(1f, time, 1f);
-        addToList("AirPlane", airPlanePosition, time);
-        addToList("AirPlaneTail", airPlanePosition, time);
+        theTail.transform.GetComponentInChildren<AirPlaneTailObject>().airPlaneTailTime = theTail.transform.localScale.y;
+        theAirPlane.transform.GetComponent<AirPlaneObject>().airPlaneTailTime = theTail.transform.localScale.y;
+        //addToList("AirPlane", airPlanePosition, time);
+        //addToList("AirPlaneTail", airPlanePosition, time);
     }
 
+    /**
     void addToList(string type, Vector3 position, float airPlaneTailTime)
     {
         EnemyFire fire = new EnemyFire(type, position, airPlaneTailTime);
         enemyFires.Add(fire);
     }
+    **/
 
 }

@@ -11,11 +11,14 @@ public class EditScroller : MonoBehaviour
     public AudioSource theMusic;
     public string jsonName;
     public GameObject pong, redAirPlane, airPlaneTail;
+
+
     private string filePathName;
-
-
+    private static float LONGPRESS = 0.25f; //按钮超过LONGPRESS判定为长按
+    private Vector3 pongPosition, airPlanePosition, airPlaneTailPosition;
     private string fileName;    // 定义一个string类型的变量 （文件名）
     private List<EnemyFire> enemyFires = new List<EnemyFire>();
+    private GameObject[] pongArray, airPlaneArray, airPlaneTailArray;
 
     // Start is called before the first frame update
     void Start()
@@ -124,12 +127,43 @@ public class EditScroller : MonoBehaviour
 
     private void getAllFires()
     {
+        /**
         EditHitObject[] editHitObjects = GetComponentsInChildren<EditHitObject>();
         foreach(EditHitObject editHitObject in editHitObjects)
         {
             enemyFires = enemyFires.Concat(editHitObject.enemyFires).ToList<EnemyFire>();
-            
+
         }
+        **/
+        enemyFires.Clear();
+
+        pongArray = GameObject.FindGameObjectsWithTag("Pong");
+        foreach(GameObject pongObject in pongArray)
+        {
+            pongPosition = pongObject.transform.position;
+            addToList("Pong", pongPosition, 0);
+        }
+
+        airPlaneArray = GameObject.FindGameObjectsWithTag("AirPlane");
+        foreach (GameObject airPlaneObject in airPlaneArray)
+        {
+            airPlanePosition = airPlaneObject.transform.position;
+            addToList("AirPlane", airPlanePosition, airPlaneObject.GetComponent<AirPlaneObject>().airPlaneTailTime);
+        }
+
+        airPlaneTailArray = GameObject.FindGameObjectsWithTag("AirPlaneTail");
+        foreach (GameObject airPlaneTailObject in airPlaneTailArray)
+        {
+            airPlaneTailPosition = airPlaneTailObject.transform.position;
+            addToList("AirPlaneTail", airPlaneTailPosition, airPlaneTailObject.GetComponentInChildren<AirPlaneTailObject>().airPlaneTailTime);
+        }
+
+    }
+
+    void addToList(string type, Vector3 position, float airPlaneTailTime)
+    {
+        EnemyFire fire = new EnemyFire(type, position, airPlaneTailTime);
+        enemyFires.Add(fire);
     }
 
     private void PlayMusic()
