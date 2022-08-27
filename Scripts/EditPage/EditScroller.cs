@@ -9,12 +9,11 @@ public class EditScroller : MonoBehaviour
     public float beatTempo; // 默认180
     public bool hasStarted;
     public AudioSource theMusic;
-    public string jsonName;
     public GameObject pong, redAirPlane, airPlaneTail;
 
 
     private string filePathName;
-    private static float LONGPRESS = 0.25f; //按钮超过LONGPRESS判定为长按
+    private string jsonName;
     private Vector3 pongPosition, airPlanePosition, airPlaneTailPosition;
     private string fileName;    // 定义一个string类型的变量 （文件名）
     private List<EnemyFire> enemyFires = new List<EnemyFire>();
@@ -28,6 +27,7 @@ public class EditScroller : MonoBehaviour
         filePathName = GameObject.Find("CurrentMap").GetComponent<CurrentMap>().currentFilePathName;
 
         MapMessage mapMessage = FileUtil.getMapMessageByFilePathName(filePathName);
+        jsonName = mapMessage.PongJsonName;
         // 设置音乐
         getMusic music = GameObject.Find("Audio").GetComponent<getMusic>();
         music.musicPath = mapMessage.MusicPath;
@@ -59,13 +59,6 @@ public class EditScroller : MonoBehaviour
         {
             hasStarted = !hasStarted;
             PlayMusic();
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            getAllFires();
-            FileUtil.saveFire(enemyFires, fileName);
-            MapMessage mapMessage = AddMapMessage();
-            FileUtil.saveFireMapMessage(mapMessage);
         }
     }
 
@@ -125,16 +118,9 @@ public class EditScroller : MonoBehaviour
         );
     }
 
-    private void getAllFires()
+    public void getAllFires()
     {
-        /**
-        EditHitObject[] editHitObjects = GetComponentsInChildren<EditHitObject>();
-        foreach(EditHitObject editHitObject in editHitObjects)
-        {
-            enemyFires = enemyFires.Concat(editHitObject.enemyFires).ToList<EnemyFire>();
-
-        }
-        **/
+        
         enemyFires.Clear();
 
         pongArray = GameObject.FindGameObjectsWithTag("Pong");
@@ -157,7 +143,30 @@ public class EditScroller : MonoBehaviour
             airPlaneTailPosition = airPlaneTailObject.transform.position;
             addToList("AirPlaneTail", airPlaneTailPosition, airPlaneTailObject.GetComponentInChildren<AirPlaneTailObject>().airPlaneTailTime);
         }
+        FileUtil.saveFire(enemyFires, fileName);
+        //MapMessage mapMessage = AddMapMessage();
+        //FileUtil.saveFireMapMessage(mapMessage);
+    }
 
+    public void removeAllFires()
+    {
+        pongArray = GameObject.FindGameObjectsWithTag("Pong");
+        foreach (GameObject pongObject in pongArray)
+        {
+            Destroy(pongObject);
+        }
+
+        airPlaneArray = GameObject.FindGameObjectsWithTag("AirPlane");
+        foreach (GameObject airPlaneObject in airPlaneArray)
+        {
+            Destroy(airPlaneObject);
+        }
+
+        airPlaneTailArray = GameObject.FindGameObjectsWithTag("AirPlaneTail");
+        foreach (GameObject airPlaneTailObject in airPlaneTailArray)
+        {
+            Destroy(airPlaneTailObject);
+        }
     }
 
     void addToList(string type, Vector3 position, float airPlaneTailTime)

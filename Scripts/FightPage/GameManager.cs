@@ -85,8 +85,17 @@ public class GameManager : MonoBehaviour
                 Invoke("PlayMusic", 1.9f);
             }
         }
-        else
+
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            StopMusic();
+            Time.timeScale = 0;
+            MessageBox.instance.ShowMessageBox("È·ÈÏÍË³ö£¿",
+                    new UnityEngine.Events.UnityAction(() => {  Time.timeScale = 1; PlayMusic(); UnityEngine.SceneManagement.SceneManager.LoadScene(1); }),
+                    new UnityEngine.Events.UnityAction(() => {  Time.timeScale = 1; PlayMusic(); }));
+        }
+        //else
+        //{
             //if (!theMusic.isPlaying && !resultScreen.activeInHierarchy)
             //{
             //    resultScreen.SetActive(true);
@@ -126,12 +135,17 @@ public class GameManager : MonoBehaviour
             //    rankText.text = rankVal;
             //    finalScoreText.text = currentScore.ToString();
             //}
-        }
+        //}
     }
 
     public void PlayMusic()
     {
         theMusic.Play();
+    }
+
+    public void StopMusic()
+    {
+        theMusic.Pause();
     }
 
     //public void NoteHit()

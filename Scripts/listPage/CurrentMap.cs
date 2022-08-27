@@ -6,11 +6,17 @@ public class CurrentMap : MonoBehaviour
 {
 
     public string currentFilePathName;
-
+    public static CurrentMap instance = null;
 
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
