@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -141,11 +140,11 @@ public class FileUtil
     // 初始化SD小人
     public static void initSDObject(string name,GameObject SDObject)
     {
-        SkeletonDataAsset res = (SkeletonDataAsset)AssetDatabase.LoadAssetAtPath("Assets/SD/" + name + "/" + name + "_SkeletonData.asset", typeof(SkeletonDataAsset));
+        string fileName = "SD/" + name + "/" + name + "_SkeletonData";
+        var res = Resources.Load<SkeletonDataAsset>(fileName);
         SkeletonAnimation skeletonAnimation = SDObject.GetComponent<SkeletonAnimation>();
         skeletonAnimation.skeletonDataAsset = res;
         skeletonAnimation.Initialize(true);
         SDObject.GetComponent<SDController>().initSkeletion();
     }
-
 }

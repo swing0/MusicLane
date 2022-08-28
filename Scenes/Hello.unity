@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 1330363355}
   - component: {fileID: 1330363358}
   m_Layer: 5
-  m_Name: setting
+  m_Name: explain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: af649afa2f1e8254b9b67903ebd5b032, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d184cf87977df3040b00f16662e2f889, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 1790327849}
   - component: {fileID: 1790327852}
   m_Layer: 5
-  m_Name: resource
+  m_Name: eidt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f1170a66a61bec241b9849e691091ff3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f45df42ef7c0dc4418960bb5a454f915, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -7,7 +7,7 @@ public class getMusic : MonoBehaviour
     public string musicPath;
     public string filePath;
 
-    private AudioSource audio;
+    private new AudioSource audio;
     private bool changePlay = false;
 
     private void Awake()

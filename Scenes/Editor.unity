@@ -1850,7 +1850,6 @@ MonoBehaviour:
   beatTempo: 180
   hasStarted: 0
   theMusic: {fileID: 2064987408}
-  jsonName: "\u30B7\u30B0\u30CA\u30EB.json"
   pong: {fileID: 7588367764286832380, guid: a851858d9f8a7114a8baecd2ef6d4d70, type: 3}
   redAirPlane: {fileID: 3703575081706630554, guid: f2d7a971a828b0f4aab147bc66835cb9, type: 3}
   airPlaneTail: {fileID: 5031759902545090169, guid: ff9e6075da16b8e489d8a270ad051f48, type: 3}
