@@ -120,20 +120,13 @@ public class FileUtil
         return strRan.ToString();
     }
 
-    [System.Obsolete]
+    
     public static IEnumerator IELoadExternalAudioWebRequest(string _url, AudioSource audioSource, AudioType _audioType)
     {
         UnityWebRequest _unityWebRequest = UnityWebRequestMultimedia.GetAudioClip(_url, _audioType);
         yield return _unityWebRequest.SendWebRequest();
-        if (_unityWebRequest.isHttpError || _unityWebRequest.isNetworkError)
-        {
-            Debug.Log(_unityWebRequest.error.ToString());
-        }
-        else
-        {
-            AudioClip _audioClip = DownloadHandlerAudioClip.GetContent(_unityWebRequest);
-            audioSource.clip = _audioClip;
-        }
+        AudioClip _audioClip = DownloadHandlerAudioClip.GetContent(_unityWebRequest);
+        audioSource.clip = _audioClip;
     }
 
 

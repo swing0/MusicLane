@@ -35,7 +35,7 @@ public class BondChara : MonoBehaviour, IPointerDownHandler
             animationState.SetAnimation(0, "touch", false);
 
             string fullName =  skeletonAnimation.skeletonDataAsset.name;
-            string englishName = fullName.Split("_")[0];
+            string englishName = fullName.Substring(0, fullName.LastIndexOf("_"));
             string chineseName = DictionaryUtil.getKeyByValue(englishName);
 
             SelectLabel.GetComponent<Text>().text = chineseName;

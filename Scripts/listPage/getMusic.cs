@@ -35,7 +35,18 @@ public class getMusic : MonoBehaviour
     {
 
         string fullName = FileUtil.getFileName(musicPath, filePath);
-        StartCoroutine(FileUtil.IELoadExternalAudioWebRequest(fullName, audio, AudioType.WAV));
+        if (fullName.EndsWith("wav"))
+        {
+            StartCoroutine(FileUtil.IELoadExternalAudioWebRequest(fullName, audio, AudioType.WAV));
+        }
+        else if (fullName.EndsWith("mp3"))
+        {
+            StartCoroutine(FileUtil.IELoadExternalAudioWebRequest(fullName, audio, AudioType.MPEG));
+        }
+        else
+        {
+            Debug.Log("音乐格式不支持");
+        }
 
     }
 

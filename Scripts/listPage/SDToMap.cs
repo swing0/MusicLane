@@ -34,11 +34,11 @@ public class SDToMap : MonoBehaviour
 
         
         string leftSDName = GameObject.Find("leftSD").GetComponent<SkeletonAnimation>().SkeletonDataAsset == null?"null_": GameObject.Find("leftSD").GetComponent<SkeletonAnimation>().SkeletonDataAsset.name;
-        leftSDName = leftSDName.Substring(0, leftSDName.IndexOf("_"));
+        leftSDName = leftSDName.Substring(0, leftSDName.LastIndexOf("_"));
         string midSDName = GameObject.Find("midSD").GetComponent<SkeletonAnimation>().SkeletonDataAsset == null ? "null_" : GameObject.Find("midSD").GetComponent<SkeletonAnimation>().SkeletonDataAsset.name;
-        midSDName = midSDName.Substring(0, midSDName.IndexOf("_"));
+        midSDName = midSDName.Substring(0, midSDName.LastIndexOf("_"));
         string rightSDName = GameObject.Find("rightSD").GetComponent<SkeletonAnimation>().SkeletonDataAsset == null ? "null_" : GameObject.Find("rightSD").GetComponent<SkeletonAnimation>().SkeletonDataAsset.name;
-        rightSDName = rightSDName.Substring(0, rightSDName.IndexOf("_"));
+        rightSDName = rightSDName.Substring(0, rightSDName.LastIndexOf("_"));
 
         Dictionary<string, string> wifes = new Dictionary<string, string>();
         wifes.Add("leftSD", leftSDName);
