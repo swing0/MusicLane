@@ -109,7 +109,7 @@ public class EditScroller : MonoBehaviour
                     theAirPlane.GetComponent<AirPlaneObject>().airPlaneTailTime = enemyFire.AirPlaneTailTime;
                     break;
                 case "AirPlaneTail":
-                    GameObject theAirPlaneTail = Instantiate(airPlaneTail, enemyFire.Position - new Vector3(0f, 0.1f, 0f), airPlaneTail.transform.rotation);
+                    GameObject theAirPlaneTail = Instantiate(airPlaneTail, enemyFire.Position, airPlaneTail.transform.rotation);
                     theAirPlaneTail.transform.localScale = new Vector3(1f, enemyFire.AirPlaneTailTime, 1f);
                     theAirPlaneTail.GetComponentInChildren<AirPlaneTailObject>().airPlaneTailTime = enemyFire.AirPlaneTailTime;
                     break;
@@ -131,10 +131,19 @@ public class EditScroller : MonoBehaviour
         }
 
         airPlaneArray = GameObject.FindGameObjectsWithTag("AirPlane");
+
+        CircleCollider2D[] polygonCollider2Ds = new CircleCollider2D[1];
+        var contactFilter2D = new ContactFilter2D();
+        float airPlaneTailTime = 0;
         foreach (GameObject airPlaneObject in airPlaneArray)
         {
+            int count = airPlaneObject.GetComponent<CircleCollider2D>().OverlapCollider(contactFilter2D, polygonCollider2Ds);
+            if (count > 0)
+            {
+                airPlaneTailTime = polygonCollider2Ds[0].GetComponent<AirPlaneTailObject>().airPlaneTailTime;
+            }
             airPlanePosition = airPlaneObject.transform.position;
-            addToList("AirPlane", airPlanePosition, airPlaneObject.GetComponent<AirPlaneObject>().airPlaneTailTime);
+            addToList("AirPlane", airPlanePosition, airPlaneTailTime);
         }
 
         airPlaneTailArray = GameObject.FindGameObjectsWithTag("AirPlaneTail");

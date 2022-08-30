@@ -61,7 +61,7 @@ public class BeatScroller : MonoBehaviour
                     theAirPlane.GetComponent<AirPlaneObject>().airPlaneTailTime = enemyFire.AirPlaneTailTime;
                     break;
                 case "AirPlaneTail":
-                    GameObject theAirPlaneTail = Instantiate(airPlaneTail, enemyFire.Position - new Vector3(0f, 0.1f, 0f), airPlaneTail.transform.rotation);
+                    GameObject theAirPlaneTail = Instantiate(airPlaneTail, enemyFire.Position, airPlaneTail.transform.rotation);
                     theAirPlaneTail.transform.localScale = new Vector3(1f, enemyFire.AirPlaneTailTime, 1f);
                     theAirPlaneTail.GetComponentInChildren<AirPlaneTailObject>().airPlaneTailTime = enemyFire.AirPlaneTailTime;
                     theAirPlaneTail.transform.parent = this.transform;
